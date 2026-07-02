@@ -3,10 +3,10 @@ package org.example;
 public class OutputFormatter {
 
     public static String formatResult(boolean isPlayer, String guessNumber, int bullsCount, int cowCount){
-        return "w guessed x, scoring y bull and z cows"
-                .replace("w", isPlayer ? "You" : "Computer")
-                .replace("x", guessNumber)
-                .replace("y", String.valueOf(bullsCount))
-                .replace("z", String.valueOf(cowCount));
+        return "www guessed xx, scoring yy bull and zz cows\n"
+                .replace("www", isPlayer ? "You" : "Computer")
+                .replace("xx", guessNumber)
+                .replace("yy", String.valueOf(bullsCount))
+                .replace("zz", String.valueOf(cowCount));
     }
 }

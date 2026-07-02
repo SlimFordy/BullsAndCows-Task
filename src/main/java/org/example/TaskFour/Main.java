@@ -1,6 +1,9 @@
-package org.example.TaskThree;
+package org.example.TaskFour;
 
 import org.example.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
@@ -18,10 +21,10 @@ public class Main {
         String computerGuessNumber = null;
         int bullsCount = 0;
         int cowCount = 0;
-
+        Set<String> computerGuesses = new HashSet<>();
         do{
             System.out.println("Turn " + turn);
-            playerGuessNumber = ValidFourDigitGenerator.getValidInputNumber();
+            playerGuessNumber = args == null ? ValidFourDigitGenerator.getValidInputNumber() : args[turn - 1];
             cowCount = cowsCounter.countCow(playerGuessNumber, true);
             bullsCount = bullsCounter.countBulls(playerGuessNumber, true);
             System.out.print(OutputFormatter.formatResult(true, playerGuessNumber,bullsCount, cowCount));
@@ -30,7 +33,12 @@ public class Main {
                 break;
             }
 
-            computerGuessNumber = ValidFourDigitGenerator.getValidFourDigitNumber();
+            boolean isComputerChoiceValid;
+            do {
+                computerGuessNumber = ValidFourDigitGenerator.getValidFourDigitNumber();
+                isComputerChoiceValid = computerGuesses.add(computerGuessNumber); // will return false if element already exist
+            }while (!isComputerChoiceValid);
+
             cowCount = cowsCounter.countCow(computerGuessNumber, false);
             bullsCount = bullsCounter.countBulls(computerGuessNumber, false);
             System.out.println(OutputFormatter.formatResult(false, computerGuessNumber, bullsCount, cowCount));

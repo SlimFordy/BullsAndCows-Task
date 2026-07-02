@@ -34,9 +34,12 @@ public class Singleton {
     }
 
     public static Singleton getTwoPlayerInstance(String playerSecretNumber){
-        if(instance == null)
-            instance = new Singleton(ValidFourDigitGenerator.getValidFourDigitNumber(), playerSecretNumber);
-
+        if(instance == null) {
+            String computerSecretCode = "4281";
+                    //ValidFourDigitGenerator.getValidFourDigitNumber();
+            System.out.println("Computer's code: " + computerSecretCode);
+            instance = new Singleton(computerSecretCode, playerSecretNumber);
+        }
         return instance;
     }
 
