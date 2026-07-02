@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.TaskEight.ConfigurableSingleton;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -15,8 +17,8 @@ public class CowsCounter {
         Set<Integer> flaggedAsCowIndexes = new HashSet<>();
         List<Integer> secretCodeArray = new ArrayList<>();
         String secretNumber = isPlayerGuess ?
-                Singleton.getInstance().getComputerSecretNumber() :
-                Singleton.getInstance().getPlayerSecretNumber();
+                ConfigurableSingleton.getInstance().getComputerSecretNumber() :
+                ConfigurableSingleton.getInstance().getPlayerSecretNumber();
 
         for (char c : secretNumber.toCharArray()) {
             int num = Character.getNumericValue(c);
@@ -29,11 +31,11 @@ public class CowsCounter {
             int num = Character.getNumericValue(c);
             guessCodeArray.add(num);
         }
-
-        for(int i = 0; i < 4; i++){
+        int maxLength = Configuration.getInstance().getMaxSecretCodeLength();
+        for(int i = 0; i < maxLength; i++){
             int secretNumberAtIndexI = secretCodeArray.get(i);
 
-            for(int j = 0; j < 4; j++){
+            for(int j = 0; j < maxLength; j++){
                 int guessNumberAtIndexJ = guessCodeArray.get(j);
                 boolean isPossibleCow = j != i && guessNumberAtIndexJ == secretNumberAtIndexI; // meaning same value, but different places
                 if(isPossibleCow){

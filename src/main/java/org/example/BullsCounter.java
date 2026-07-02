@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.TaskEight.ConfigurableSingleton;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -10,9 +12,9 @@ public class BullsCounter {
     public int countBulls(String guessNumber, boolean isPlayerGuess){
         int currentOccurence = 0;
         String secretNumber = isPlayerGuess ?
-                Singleton.getInstance().getComputerSecretNumber() :
-                Singleton.getInstance().getPlayerSecretNumber();
-        for(int i = 0; i < 4; i++){
+                ConfigurableSingleton.getInstance().getComputerSecretNumber() :
+                ConfigurableSingleton.getInstance().getPlayerSecretNumber();
+        for(int i = 0; i < Configuration.getInstance().getMaxSecretCodeLength(); i++){
             if(secretNumber.charAt(i) == guessNumber.charAt(i))
                 currentOccurence++;
         }

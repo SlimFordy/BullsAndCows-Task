@@ -24,7 +24,7 @@ public class Main {
 
         do{
             System.out.println("Turn " + turn);
-            playerGuessNumber = args == null ? ValidFourDigitGenerator.getValidInputNumber() : args[turn - 1];
+            playerGuessNumber = args.length == 0 ? ValidFourDigitGenerator.getValidInputNumber() : args[turn - 1];
             cowCount = cowsCounter.countCow(playerGuessNumber, true);
             bullsCount = bullsCounter.countBulls(playerGuessNumber, true);
             System.out.print(OutputFormatter.formatResult(true, playerGuessNumber,bullsCount, cowCount));

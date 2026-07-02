@@ -1,5 +1,6 @@
-package org.example.TaskSix;
+package org.example.TaskSeven;
 
+import org.example.Configuration;
 import org.example.OutputStreamListener;
 
 import java.io.*;
@@ -9,6 +10,14 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
+        ByteArrayOutputStream captureStream = new ByteArrayOutputStream();
+        PrintStream originalOut = System.out;
+
+        // Create tee that writes to both console and capture stream
+        OutputStreamListener tee = new OutputStreamListener(System.out, captureStream);
+        PrintStream teePrintStream = new PrintStream(tee);
+        System.setOut(teePrintStream);
+
         Scanner scanner = new Scanner(System.in);
         // Ask user for input method
         System.out.println("Do you wish to:");
@@ -56,6 +65,12 @@ public class Main {
 
         } else {
             System.out.println("Invalid choice. Please enter 1 or 2.");
+        }
+        try(FileOutputStream fos = new FileOutputStream("filelog.txt")) {
+            fos.write(captureStream.toString().getBytes());
+            fos.flush();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }
