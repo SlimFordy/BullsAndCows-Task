@@ -12,8 +12,8 @@ public class EntryPoint {
         Scanner sc = new Scanner(System.in);
         String choice = sc.nextLine();
         if(choice.equals("1"))
-            org.example.TaskThree.Main.main(null);
+            org.example.TaskThree.Main.main(args);
         else
-            org.example.TaskFour.Main.main(null);
+            org.example.TaskFour.Main.main(args);
     }
 }

@@ -13,20 +13,24 @@ public class Main {
                 ValidFourDigitGenerator.getValidInputNumber()); //the secret code of computer is just generated inside
 
         int turn = 1;
-        String playerGuessNumber = null;
+        String playerGuessNumber;
 
-        String computerGuessNumber = null;
-        int bullsCount = 0;
-        int cowCount = 0;
+        String computerGuessNumber;
+        int bullsCount;
+        int cowCount;
+
+        boolean playerWon = false;
+        boolean computerWon = false;
 
         do{
             System.out.println("Turn " + turn);
-            playerGuessNumber = ValidFourDigitGenerator.getValidInputNumber();
+            playerGuessNumber = args == null ? ValidFourDigitGenerator.getValidInputNumber() : args[turn - 1];
             cowCount = cowsCounter.countCow(playerGuessNumber, true);
             bullsCount = bullsCounter.countBulls(playerGuessNumber, true);
             System.out.print(OutputFormatter.formatResult(true, playerGuessNumber,bullsCount, cowCount));
             if(bullsCount == 4){
                 System.out.println("You win! :)");
+                playerWon = true;
                 break;
             }
 
@@ -36,9 +40,14 @@ public class Main {
             System.out.println(OutputFormatter.formatResult(false, computerGuessNumber, bullsCount, cowCount));
             if(bullsCount == 4){
                 System.out.println("Computer win! T_T");
+                computerWon = true;
                 break;
             }
             turn++;
         }while (turn <= 7);
+
+        if(computerWon || playerWon)
+            System.out.println("{ win!".replace("{", playerWon ? "You" : "Computer"));
+        else System.out.println("Draw");
     }
 }
