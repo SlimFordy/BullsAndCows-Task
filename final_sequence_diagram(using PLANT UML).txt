@@ -1,0 +1,128 @@
+@startuml
+actor Player
+participant System
+participant File
+participant AI
+
+== Game Configuration ==
+
+loop Until at least 2 configurations are set
+    System -> Player: Configure game settings
+    note right
+    Options:
+    - Max Attempts (default 7)
+    - Secret Code Length (default 4)
+    - Include Letters? (default No)
+    end note
+
+    Player --> System: Submit configurations
+
+    alt Configured options < 2
+        System -> Player: Invalid. Configure again.
+    else Valid configuration
+        break
+    end
+end
+
+== Input Method ==
+
+System -> Player: Read guesses from file?
+
+alt Yes
+    loop Until valid file
+        Player --> System: Enter file path
+        System -> File: Check file existence
+
+        alt File exists
+            File --> System: Valid
+            break
+        else Invalid file
+            File --> System: Not found
+            System -> Player: Enter another file path
+        end
+    end
+else No
+    System -> Player: Manual input selected
+end
+
+== AI Selection ==
+
+System -> Player: Choose AI difficulty
+Player --> System: Easy / Medium
+
+alt Easy AI
+    System -> AI: Set Easy Mode\n(Random guesses, repeats allowed)
+else Medium AI
+    System -> AI: Set Medium Mode\n(No repeated guesses)
+end
+
+== Secret Code Setup ==
+
+loop Until valid secret code
+    System -> Player: Enter your secret code
+    Player --> System: Secret code
+
+    alt Invalid code
+        System -> Player: Invalid code. Enter again.
+    else Valid
+        break
+    end
+end
+
+System -> AI: Generate secret code
+AI --> System: Secret code generated
+
+== Gameplay ==
+
+loop Until winner or max attempts reached
+
+    group Player's Turn
+        alt Manual Input
+            System -> Player: Enter guess
+            Player --> System: Guess
+        else File Input
+            System -> File: Read next guess
+            File --> System: Guess
+        end
+
+        System -> System: Compare with AI secret
+        System -> Player: Display Bulls & Cows
+
+        alt Player gets all Bulls
+            System -> Player: Player Wins!
+            break
+        end
+    end
+
+    group AI's Turn
+        System -> AI: Generate guess
+        AI --> System: Guess
+
+        System -> System: Compare with Player secret
+        System -> Player: Display AI Bulls & Cows
+
+        alt AI gets all Bulls
+            System -> Player: AI Wins!
+            break
+        end
+    end
+
+end
+
+alt Max attempts reached and no winner
+    System -> Player: Draw Game
+end
+
+== Save Logs ==
+
+System -> Player: Save console output to file?
+
+alt Yes
+    System -> File: Write logs.txt
+    File --> System: Saved
+    System -> Player: Logs saved
+else No
+    System -> Player: Logs discarded
+end
+
+@enduml

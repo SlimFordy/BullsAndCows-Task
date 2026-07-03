@@ -1,44 +1,42 @@
 package org.example;
 
-import java.util.Random;
+public class ConfigurableSingleton {
 
-public class Singleton {
-    
-    public static Singleton instance;
+    public static ConfigurableSingleton instance;
 
     private final String computerSecretNumber;
     private final String playerSecretNumber;
 
-    private Singleton(String secretNumber) {
+    private ConfigurableSingleton(String secretNumber) {
         System.out.println(secretNumber);
         this.computerSecretNumber = secretNumber;
         this.playerSecretNumber = "";
     }
 
-    public Singleton(String computerSecretNumber, String playerSecretNumber) {
+    public ConfigurableSingleton(String computerSecretNumber, String playerSecretNumber) {
         this.computerSecretNumber = computerSecretNumber;
         this.playerSecretNumber = playerSecretNumber;
     }
 
-    public static Singleton getInstance() {
+    public static ConfigurableSingleton getInstance() {
         if (instance == null) {
-            instance = new Singleton(ValidFourDigitGenerator.getValidFourDigitNumber());
+            instance = new ConfigurableSingleton(ConfigurableValidDigitGenerator.getValidFourDigitNumber());
         }
         return instance;
     }
 
-    public static Singleton getInstance(String secretNumber) {
+    public static ConfigurableSingleton getInstance(String secretNumber) {
         if (instance == null) {
-            instance = new Singleton(secretNumber);
+            instance = new ConfigurableSingleton(secretNumber);
         }
         return instance;
     }
 
-    public static Singleton getTwoPlayerInstance(String playerSecretNumber){
+    public static ConfigurableSingleton getTwoPlayerInstance(String playerSecretNumber){
         if(instance == null) {
-            String computerSecretCode = ValidFourDigitGenerator.getValidFourDigitNumber();
+            String computerSecretCode = ConfigurableValidDigitGenerator.getValidFourDigitNumber();
             System.out.println("Computer's code: " + computerSecretCode);
-            instance = new Singleton(computerSecretCode, playerSecretNumber);
+            instance = new ConfigurableSingleton(computerSecretCode, playerSecretNumber);
         }
         return instance;
     }

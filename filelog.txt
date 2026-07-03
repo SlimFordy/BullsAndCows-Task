@@ -2,39 +2,40 @@ Do you wish to:
 1. Enter guesses manually
 2. Load guesses from a file
 Enter your choice (1 or 2): File input mode selected.
-Enter filename: File not found. Please enter a valid filename.
 Enter filename: File found! Reading guesses from C:\Users\slimfordy\Desktop\test.txt
 ENTER 1 TO GO AGAINST EASY AI
 CLICK ANY KEY TO GO AGAINST MEDIUM AI
 
 Bulls & cows game result.
-Your code: Computer's code: 1683
+Your code: Element G is not within the allowed choices.
+Duplicate digit found: 5
+Computer's code: 2451
 Turn 1
-You guessed 1239, scoring 1 bull and 1 cows
-Computer guessed 0472, scoring 0 bull and 2 cows
+You guessed 1239, scoring 0 bull and 2 cows
+Computer guessed 3570, scoring 0 bull and 2 cows
 
 Turn 2
-You guessed 4321, scoring 0 bull and 2 cows
-Computer guessed 6792, scoring 0 bull and 1 cows
+You guessed 4321, scoring 1 bull and 2 cows
+Computer guessed 5A18, scoring 1 bull and 0 cows
 
 Turn 3
-You guessed 5830, scoring 0 bull and 2 cows
-Computer guessed 1540, scoring 0 bull and 2 cows
+You guessed 5830, scoring 0 bull and 1 cows
+Computer guessed 3250, scoring 0 bull and 1 cows
 
 Turn 4
-You guessed 8437, scoring 0 bull and 2 cows
-Computer guessed 9465, scoring 0 bull and 1 cows
+You guessed 8437, scoring 1 bull and 0 cows
+Computer guessed 1957, scoring 1 bull and 1 cows
 
 Turn 5
-You guessed 1489, scoring 2 bull and 0 cows
-Computer guessed 5021, scoring 2 bull and 0 cows
+You guessed 1489, scoring 1 bull and 1 cows
+Computer guessed 086B, scoring 0 bull and 1 cows
 
 Turn 6
-You guessed 3271, scoring 0 bull and 2 cows
-Computer guessed 9785, scoring 0 bull and 0 cows
+You guessed 3271, scoring 1 bull and 1 cows
+Computer guessed 586C, scoring 1 bull and 2 cows
 
 Turn 7
-You guessed 2530, scoring 0 bull and 1 cows
-Computer guessed 8746, scoring 0 bull and 1 cows
+You guessed 2530, scoring 1 bull and 1 cows
+Computer guessed 6315, scoring 0 bull and 2 cows
 
 Draw

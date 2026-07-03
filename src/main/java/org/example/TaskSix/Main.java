@@ -23,7 +23,7 @@ public class Main {
             System.out.println("Manual input mode selected. Enter your 4-digit guesses:");
             org.example.TaskFour.EntryPoint.main(null);
 
-        } else if (choice == 2) {
+        } else {
             // File input mode
             System.out.println("File input mode selected.");
 
@@ -54,8 +54,6 @@ public class Main {
                 System.out.println("Error reading file: " + e.getMessage());
             }
 
-        } else {
-            System.out.println("Invalid choice. Please enter 1 or 2.");
         }
     }
 }

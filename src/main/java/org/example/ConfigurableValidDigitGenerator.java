@@ -1,6 +1,4 @@
-package org.example.TaskEight;
-
-import org.example.Configuration;
+package org.example;
 
 import java.util.*;
 

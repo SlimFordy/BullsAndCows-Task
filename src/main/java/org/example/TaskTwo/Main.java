@@ -1,19 +1,19 @@
 package org.example.TaskTwo;
 
 import org.example.BullsCounter;
+import org.example.ConfigurableSingleton;
+import org.example.ConfigurableValidDigitGenerator;
 import org.example.CowsCounter;
-import org.example.Singleton;
-import org.example.ValidFourDigitGenerator;
 
 public class Main {
     public static void main(String[] args) {
-        Singleton.getInstance();
+        ConfigurableSingleton.getInstance();
         CowsCounter cowsCounter = new CowsCounter();
         BullsCounter bullsCounter = new BullsCounter();
         int attempt = 1;
         int bulls = 0;
         do{
-            String number = ValidFourDigitGenerator.getValidInputNumber();
+            String number = ConfigurableValidDigitGenerator.getValidInputNumber();
 
             bulls = bullsCounter.countBulls(number, true);
             int cows = cowsCounter.countCow(number, true);
