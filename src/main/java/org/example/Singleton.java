@@ -10,6 +10,7 @@ public class Singleton {
     private final String playerSecretNumber;
 
     private Singleton(String secretNumber) {
+        System.out.println(secretNumber);
         this.computerSecretNumber = secretNumber;
         this.playerSecretNumber = "";
     }

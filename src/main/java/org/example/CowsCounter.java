@@ -17,8 +17,8 @@ public class CowsCounter {
         Set<Integer> flaggedAsCowIndexes = new HashSet<>();
         List<Integer> secretCodeArray = new ArrayList<>();
         String secretNumber = isPlayerGuess ?
-                ConfigurableSingleton.getInstance().getComputerSecretNumber() :
-                ConfigurableSingleton.getInstance().getPlayerSecretNumber();
+                (Singleton.instance == null ? ConfigurableSingleton.getInstance().getComputerSecretNumber() : Singleton.getInstance().getComputerSecretNumber()) :
+                (Singleton.instance == null ? ConfigurableSingleton.getInstance().getPlayerSecretNumber() : Singleton.getInstance().getPlayerSecretNumber());
 
         for (char c : secretNumber.toCharArray()) {
             int num = Character.getNumericValue(c);

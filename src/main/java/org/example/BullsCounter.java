@@ -12,8 +12,8 @@ public class BullsCounter {
     public int countBulls(String guessNumber, boolean isPlayerGuess){
         int currentOccurence = 0;
         String secretNumber = isPlayerGuess ?
-                ConfigurableSingleton.getInstance().getComputerSecretNumber() :
-                ConfigurableSingleton.getInstance().getPlayerSecretNumber();
+                (Singleton.instance == null ? ConfigurableSingleton.getInstance().getComputerSecretNumber() : Singleton.getInstance().getComputerSecretNumber()) :
+                (Singleton.instance == null ? ConfigurableSingleton.getInstance().getPlayerSecretNumber() : Singleton.getInstance().getPlayerSecretNumber());
         for(int i = 0; i < Configuration.getInstance().getMaxSecretCodeLength(); i++){
             if(secretNumber.charAt(i) == guessNumber.charAt(i))
                 currentOccurence++;
