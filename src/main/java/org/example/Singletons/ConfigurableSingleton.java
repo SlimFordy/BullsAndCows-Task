@@ -1,4 +1,6 @@
-package org.example;
+package org.example.Singletons;
+
+import org.example.Utils.ConfigurableValidDigitGenerator;
 
 public class ConfigurableSingleton {
 

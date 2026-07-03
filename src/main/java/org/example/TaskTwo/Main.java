@@ -1,9 +1,9 @@
 package org.example.TaskTwo;
 
-import org.example.BullsCounter;
-import org.example.ConfigurableSingleton;
-import org.example.ConfigurableValidDigitGenerator;
-import org.example.CowsCounter;
+import org.example.Utils.BullsCounter;
+import org.example.Singletons.ConfigurableSingleton;
+import org.example.Utils.ConfigurableValidDigitGenerator;
+import org.example.Utils.CowsCounter;
 
 public class Main {
     public static void main(String[] args) {

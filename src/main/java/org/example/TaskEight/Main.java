@@ -1,6 +1,6 @@
 package org.example.TaskEight;
 
-import org.example.*;
+import org.example.Singletons.Configuration;
 
 import java.io.FileNotFoundException;
 import java.util.Scanner;

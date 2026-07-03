@@ -1,4 +1,6 @@
-package org.example;
+package org.example.Utils;
+
+import org.example.Singletons.Configuration;
 
 import java.util.*;
 

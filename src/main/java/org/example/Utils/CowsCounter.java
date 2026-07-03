@@ -1,4 +1,7 @@
-package org.example;
+package org.example.Utils;
+
+import org.example.Singletons.ConfigurableSingleton;
+import org.example.Singletons.Configuration;
 
 import java.util.ArrayList;
 import java.util.HashSet;

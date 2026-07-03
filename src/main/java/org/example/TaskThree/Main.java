@@ -1,6 +1,10 @@
 package org.example.TaskThree;
 
-import org.example.*;
+import org.example.Singletons.ConfigurableSingleton;
+import org.example.Utils.BullsCounter;
+import org.example.Utils.ConfigurableValidDigitGenerator;
+import org.example.Utils.CowsCounter;
+import org.example.Utils.OutputFormatter;
 
 public class Main {
     public static void main(String[] args) {

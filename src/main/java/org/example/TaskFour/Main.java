@@ -1,6 +1,10 @@
 package org.example.TaskFour;
 
-import org.example.*;
+import org.example.Singletons.ConfigurableSingleton;
+import org.example.Utils.BullsCounter;
+import org.example.Utils.ConfigurableValidDigitGenerator;
+import org.example.Utils.CowsCounter;
+import org.example.Utils.OutputFormatter;
 
 import java.util.HashSet;
 import java.util.Set;
