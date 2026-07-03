@@ -66,11 +66,15 @@ public class Main {
         } else {
             System.out.println("Invalid choice. Please enter 1 or 2.");
         }
-        try(FileOutputStream fos = new FileOutputStream("filelog.txt")) {
-            fos.write(captureStream.toString().getBytes());
-            fos.flush();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        byte[] totalOutput = captureStream.toString().getBytes();
+        System.out.println("Save the output?(Y/N)");
+
+        if(scanner.nextLine().equalsIgnoreCase("y"))
+            try(FileOutputStream fos = new FileOutputStream("filelog.txt")) {
+                fos.write(totalOutput);
+                fos.flush();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
     }
 }

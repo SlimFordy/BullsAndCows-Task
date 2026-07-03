@@ -46,8 +46,7 @@ public class Main {
             turn++;
         }while (turn <= 7);
 
-        if(computerWon || playerWon)
-            System.out.println("{ win!".replace("{", playerWon ? "You" : "Computer"));
-        else System.out.println("Draw");
+        if(!computerWon && !playerWon)
+            System.out.println("Draw");
     }
 }
